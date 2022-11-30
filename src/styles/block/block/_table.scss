@@ -1,0 +1,98 @@
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    th,
+    thead td{
+        background: #8A949F;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: left;
+        padding: 18px 15px;
+        line-height: 1;
+        @include m-desktop-small(){
+            padding: 12px;
+        }
+        &:not(:last-child){
+            border-right: 1px solid rgba($color: $color_white, $alpha: .2);
+        }
+        &:last-child{
+            padding-right: 10px;
+        }
+    }
+    tr{
+        td{
+            padding: 9px 15px;
+            opacity: 0.7;
+            transition: $trsn;
+            border-bottom: 1px solid #E8E8F0;
+            @include m-desktop-small(){
+                padding: 6px 12px;
+                word-wrap: break-word;
+            }
+            &:not(:last-child){
+                border-right: 1px solid #E8E8F0;
+            }
+            &:last-child{
+                padding-right: 10px;
+            }
+        }
+        &:hover{
+            td{
+                opacity: 1;
+                background: #F4F4F9;
+                .table{
+                    &__button {
+                        background: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__button {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        padding: 10px;
+        margin: 0;
+        cursor: pointer;
+        border-radius: 5px;
+        background: #F4F5F6;
+        outline: none;
+        transition: $trsn;
+        svg{
+            fill: transparent ;
+            stroke: #000 ;
+            transition: $trsn;
+          path{
+            fill: transparent ;
+            stroke: #000 ;
+          }
+        }
+        &:hover{
+            background-color: $color_blue !important;
+            svg{
+                stroke: $color_white !important;
+              path{
+                stroke: $color_white;
+              }
+            }
+        }
+        &:not(:last-child){
+            margin-right: 10px;
+        }
+    }
+    .input-checkbox{
+        width: 20px;
+        height: 20px;
+        display: block;
+        margin: 0 auto;
+    }
+}

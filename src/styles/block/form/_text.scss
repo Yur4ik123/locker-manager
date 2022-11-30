@@ -1,0 +1,19 @@
+.input-text{
+    display: block;
+    height: 60px;
+    width: 100%;
+    outline: none;
+    font-family: $font_base;
+    font-size: 16px;
+    border: 1px solid #DCDFE3;
+    background-color: $color_white;
+    padding: 0 20px;
+    color: $color_black;
+    transition: $trsn;
+    &:focus{
+        border-color: #333;
+    }
+    &.error{
+        border-color: $color_red;
+    }
+}

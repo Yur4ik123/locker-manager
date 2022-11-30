@@ -1,0 +1,29 @@
+.pagination {
+    display: flex;
+    margin-right: auto;
+    &__item {
+        flex: 0 1 45px;
+        min-width: 45px;
+        flex-basis: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        border: 1px solid #DCDFE3;
+        border-radius: 5px;
+        font-size: 18px;
+        color: #8A949F;
+        padding: 0 7px;
+        &_dotted{
+            border-color: transparent;
+        }
+        &:not(:last-child){
+            margin-right: 4px;
+        }
+        &.active,
+        &:hover{
+            background: #DCDFE3;
+            color: $color_black;
+        }
+    }
+}

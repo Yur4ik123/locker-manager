@@ -1,0 +1,64 @@
+.filter {
+    width: 270px;
+    background-color: #fff;
+    padding: 40px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 99;
+    margin-top: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    max-height: calc(100vh - 230px);
+    overflow-y: auto;
+    &__close {
+        width: 30px;
+        height: 30px;
+        padding: 7px;
+        transition: $trsn;
+        cursor: pointer;
+        border-radius: 3px;
+        position: absolute;
+        top: 44px;
+        right: 30px;
+        svg{
+            stroke: $color_blue !important;
+            transition: $trsn !important;
+        }
+        &:hover{
+            background-color: #DCDFE3;
+            svg{
+                stroke: $color_black !important;
+            }
+        }
+    }
+    &__title {
+        font-size: 25px;
+        font-weight: 400;
+        color: $color_blue;
+    }
+    &__wrap {
+        margin-top: 20px;
+    }
+    &__group {
+        &:not(:first-child){
+            margin-top: 30px;
+        }
+    }
+    &__group-lbl {
+        display: block;
+        font-weight: bold;
+        font-size: 18px;
+        color: #4D4D4D;
+    }
+    &__group-list {
+        .input-checkbox {
+            display: block;
+            margin-top: 16px;
+        }
+    }
+    &__group-item{
+        position: relative;
+        margin-top: 15px;
+    }
+}

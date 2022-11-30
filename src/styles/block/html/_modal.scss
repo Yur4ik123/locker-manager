@@ -1,0 +1,33 @@
+.modal{
+    width: 100%;
+    max-width: 1400px;
+    padding: 30px;
+    background-color: #fff;
+    display: none;
+    &_export{
+        max-width: 420px;
+    }
+    img{
+        display: block;
+        width: 100%;
+    }
+    &__title{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    &__form{
+    }
+    &__form-row{
+        margin-top: 20px;
+        position: relative;
+    }
+    &__form-buttons{
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 40px;
+        .button{
+            flex: 1;
+        }
+    }
+}

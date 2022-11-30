@@ -1,0 +1,64 @@
+.input-checkbox {
+    cursor: pointer;
+	&__input {
+		position: absolute;
+		opacity: 0;
+		width: 0;	
+		height: 0;
+		-webkit-appearance: none;
+		&:checked {
+			& + span {
+				&:before {
+					border-color: $color_blue;
+				}
+				&:after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+	span {
+		font-family: $font_base;
+		font-size: 18px;
+		line-height: 1.25;
+		padding-left: 30px;
+		position: relative;
+		display: block; 
+		user-select: none;
+		a {
+			color: $color_red;
+			border-bottom: 1px solid currentColor;
+			transition: border-color $trsn;
+			&:hover {
+				border-color: transparent;
+			}
+		}
+		&:before {
+			box-sizing: border-box;
+			position: absolute;
+			content: '';
+			width: 20px;
+			height: 20px;
+			border-radius: 3px;
+			background: #fff;
+			top: 0px;
+			left: 0;
+			border: 1px solid #000;
+			transition: $trsn;
+		}
+		&:after {
+			box-sizing: border-box;
+			position: absolute;
+			content: '';
+			width: 20px;
+			height: 20px;
+			border-radius: 3px;
+			top: 0px;
+			left: 0px;
+			opacity: 0;
+			background: $color_blue url('@/assets/img/style/ico_checked.svg') no-repeat;
+			transition: opacity $trsn;
+		}
+	}
+}
+

@@ -1,0 +1,114 @@
+.jq-selectbox {
+    font-family: $font_base;
+    position: relative;
+    z-index: 98;
+    width: 100%;
+    &.focused {
+        .jq-selectbox {
+            &__select {
+                border: 1px solid #bbbbbb;
+            }
+        }
+    }
+
+    &.opened {
+        .jq-selectbox {
+            &__trigger {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &:hover {
+        background: transparent;
+    }
+    select{
+        @include m-phone(){
+            z-index: 99;
+            font-size: 16px!important;
+        }
+    }
+    &__select {
+        height: 100%;
+        padding: 22px 32px 0 20px;
+        height: 60px;
+        border-radius: 0;
+        background: transparent;
+        border: 1px solid #bbbbbb;
+        color: #262626;
+        box-shadow: none;
+        text-shadow: none;
+        background-color: #fff;
+        &:hover{
+            border-color: #333;
+            background: #fff;
+        }
+        &:active {
+            background: #fff;
+            box-shadow: none;
+        }
+
+        &-text {
+            font-family: $font_base;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 1;
+            @include m-phone() {
+                font-size: 16px !important;
+                font-weight: 400;
+            }
+
+            &.placeholder {
+                color: #7e7f82;
+            }
+        }
+    }
+
+    &__trigger {
+        border-left: none;
+        transition: $trsn;
+        width: 44px;
+        &-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            border: none;
+            background: url("@/assets/img/style/ico_dropdown.svg") center center no-repeat;
+            // background-size: 7px 14px;
+        }
+    }
+
+    &__dropdown {
+        border-radius: 0;
+        margin: 0;
+    }
+
+    & li {
+        font-family: $font_base;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1;
+        color: #000;
+        padding: 16px 20px;
+        transition: $trsn;
+
+        &.selected {
+            background-color: $color_blue;
+            color: $color_white;
+        }
+
+        &:hover {
+            background-color: $color_blue;
+            color: $color_white;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    select {
+        font-size: 16px !important;
+    }
+}

@@ -1,0 +1,94 @@
+.form {
+    margin-top: 30px;
+    &__row{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -30px;
+        align-items: flex-end;
+    }
+    &__item {
+        flex: 0 0 calc(25% - 30px);
+        max-width: calc(25% - 30px);
+        margin-left: 30px;
+        margin-bottom: 30px;
+        position: relative;
+        &_full{
+            flex: 0 0 calc(75% - 30px);
+            max-width: calc(75% - 30px);
+        }
+        &_50{
+            flex: 0 0 calc(55% - 30px);
+            max-width: calc(50% - 30px);
+        }
+        &_100{
+            flex: 0 0 calc(100% - 30px);
+            max-width: calc(100% - 30px);
+
+        }
+    }
+    &__item-icon{
+        position: absolute;
+        bottom: 17px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        pointer-events: none;
+    }
+    &__lbl {
+        display: block;
+        color: #8A949F;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+}
+.cloned{
+    width: calc(100% - 55px);
+    &__row{
+        display: flex;
+        margin-left: -10px;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    &__item{
+        flex: 0 0 calc(25% - 10px);
+        max-width: calc(25% - 10px);
+        margin-left: 10px;
+    }
+    &__bottom{
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        .button{
+            width: calc(25% - 5px);
+            &_clear{
+                width: calc(50% - 5px);
+            }
+        }
+    }
+    &__remove{
+        position: absolute;
+        width: 50px;
+        height: 60px;
+        bottom: 0;
+        right: -50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        filter: grayscale(100);
+        transition: $trsn;
+        border: 1px solid transparent;
+        border-left: none;
+        &:hover{
+            filter: grayscale(0);
+            border-color: #c1c1c1;
+        }
+    }
+}
+.form-tab{
+    display: none;
+    padding-top: 15px;
+    &.active{
+        display: block;
+    }
+}

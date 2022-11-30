@@ -1,0 +1,41 @@
+
+.search {
+    flex: 1 1 100%;
+    &__row {
+        position: relative;
+    }
+    &__field {
+        height: 50px;
+        border-radius: 5px;
+        padding-right: 65px;
+    }
+    &__button {
+        width: 50px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        padding: 14px;
+        margin: 0;
+        cursor: pointer;
+        position: absolute;
+        top: 1px;
+        right: 1px;
+        border-radius: 0 5px 5px 0;
+        background: #DCDFE3;
+        transition: $trsn;
+        outline: none;
+        svg{
+            fill: transparent;
+            stroke: #8A949F !important;
+            transition: $trsn !important;
+        }
+        &:hover{
+            background-color: $color_blue;
+            svg{
+                stroke: $color_white !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+    padding: 11px 29px 11px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	border-radius: 5px;
+	font-family: $font_base;
+	font-weight: 400;
+	line-height: 1;
+	font-size: 24px;
+	color: $color_white;
+	text-transform: uppercase;
+	text-align: center;
+	min-width: 160px;
+	border: none;
+	background-color: $color_blue;
+	outline: none;
+	color: $color_white;
+	min-height: 60px;
+	transition: $trsn;
+	&:hover{
+		background-color: lighten($color: $color_blue, $amount: 5)
+	}
+	&_block{
+		width: 100%;
+	}
+	&_green{
+		background-color: $color_green;
+		&:hover{
+			background-color: darken($color: $color_green, $amount: 5)
+		}
+	}
+	&_grey{
+		background: #ccc;
+		&:hover{
+			background-color: darken($color: #ccc, $amount: 55)
+		}
+	}
+	&_clear{
+		background-color: #fff;
+		border: 1px solid $color_blue;
+		color: $color_blue;
+		text-transform: initial;
+		font-size: 18px;
+		svg{
+			width: 18px;
+			height: 18px;
+			fill: none !important;
+			stroke: currentColor !important;
+			margin-left: 20px;
+		}
+		&:hover{
+			border-color: $color_green;
+			background-color: $color_green;
+			color: $color_white;
+		}
+	}
+	&_small{
+		font-size: 18px;
+		min-height: 50px;
+	}
+}

@@ -1,0 +1,172 @@
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: $font_base;
+    font-size: $font_size;
+    font-weight: $font_weight;
+    line-height: $line_height;
+    color: $color_black;
+    margin: 0;
+    background: $color_body;
+    width: 100%;
+    &.over {
+        overflow: hidden;
+    }
+}
+
+p {
+    margin: 10px 0 15px;
+
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    outline: none;
+    color: inherit; 
+    text-decoration: none;
+    transition: $trsn;
+    &:hover, &:focus {
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    @include m-tablet(){
+        overflow: hidden;
+        &:before{
+            content: attr(data-device) " ";;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999999;
+            background-color: $color_black;
+            opacity: 0.95;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 22px;
+        }
+    }
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    max-width: 1780px; 
+    padding: 0 30px;
+    margin: 0 auto;
+    z-index: 2;
+    @include m-tablet-wide(){
+
+    }
+}
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+
+[role="button"] {
+    cursor: pointer;
+}
+
+.white-bg{
+    background-color: #fff;
+}
+.grey-bg{
+    background-color: $color_body;
+}
+
+.tac{
+    text-align: center;
+}
+@keyframes round {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes round {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.datepicker-panel{
+    font-family: 'Arial', sans-serif;
+}
+.datepicker-panel>ul>li.picked, .datepicker-panel>ul>li.picked:hover{
+    background-color: $color_blue;
+    color: #fff;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+.fixed-save-button,
+.add-comment{
+    width: 60px;
+    height: 60px;
+    background: $color_blue;
+    border-radius: 50%;
+    position: fixed;
+    left: 30px;
+    bottom: 30px;
+    padding: 15px;
+    display: none;
+    border: none;
+    cursor: pointer;
+    svg{
+        width: 30px;
+        height: 30px;
+        fill: #fff !important;
+    }
+    &:hover{
+        background: $color_green;
+    }
+}
+.fixed-save-button{
+    left: initial;
+    right: 30px;
+}
+.datepicker-container{
+    z-index: 9999999!important;
+}

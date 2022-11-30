@@ -1,0 +1,20 @@
+.input-textarea{
+    display: block;
+    height: 140px;
+    width: 100%;
+    outline: none;
+    font-family: $font_base;
+    font-size: 16px;
+    border: 1px solid #DCDFE3;
+    background-color: $color_white;
+    padding: 10px 20px;
+    color: $color_black;
+    transition: $trsn;
+    resize: none;
+    &:focus{
+        border-color: #333;
+    }
+    &.error{
+        border-color: $color_red;
+    }
+}

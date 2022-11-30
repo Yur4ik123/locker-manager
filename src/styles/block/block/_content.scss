@@ -1,0 +1,101 @@
+.content{
+    padding-top: 30px;
+    padding-bottom: 50px;
+    &_form{
+        padding: 0;
+    }
+    &__wrap{
+        padding: 20px;
+    }
+    &__bottom{
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    &__loadmore{
+        display: block;
+        margin: 0 auto;
+        border: 1px solid $color_blue;
+        border-radius: 5px;
+        min-height: 45px;
+        padding: 14px;
+        min-width: 180px;
+        text-align: center;
+        color: $color_blue;
+        line-height: 1;
+        position: relative;
+        cursor: pointer;
+        transition: $trsn;
+        &:before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: url('@/assets/img/style/ico_loader.svg') no-repeat center center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            opacity: 0;
+        }
+        &:hover{
+            background-color: $color_blue;
+            color: $color_white;
+        }
+        &.disabled{
+            background-color: $color_blue;
+            color: transparent;
+            pointer-events: none;
+            user-select: none;
+            &:before{
+                opacity: 1;
+            }
+
+        }
+    }
+    &__bottom-controls{
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+    &__bottom-lbl {
+        font-size: 18px;
+        color: #8A949F;
+        white-space: nowrap;
+    }
+    &__bottom-select {
+        margin: 0 10px;
+        min-width: 90px;
+        .jq-selectbox__select{
+            height: 40px;
+            padding-top: 12px;
+            &-text{
+                font-weight: bold;
+                min-width: 40px;
+            }
+        }
+    }
+    &__bottom-count {
+        color: #8A949F;
+        margin-left: 40px;
+        white-space: nowrap;
+    }
+    &__table{
+        width: 100%;
+        max-width: 100%;
+        overflow-y: auto;
+    }
+    &__container{
+        padding: 30px 150px 30px 283px;
+        @include m-desktop-small(){
+            padding-right: 0;
+        }
+        @include m-laptop(){
+            padding-left: 0;
+        }
+    }
+    &__title{
+        font-size: 30px;
+        font-weight: normal;
+    }
+}
