@@ -23,6 +23,11 @@ const routes = [
         path: '/all',
         name: 'all',
         component: () => import('../views/AllLockersView')
+    },
+    {
+        path: '/request',
+        name: 'request',
+        component: () => import('../views/RequestView')
     }
 ]
 

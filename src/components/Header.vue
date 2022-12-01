@@ -6,8 +6,6 @@
         <router-link to="/" class="header__logo">
           <img src="@/assets/img/style/logo.svg" width="223" height="60" alt="Logo">
         </router-link>
-        <a href="./index.html">
-        </a>
         <div class="header__nav">
           <div class="header__nav-item">
             <router-link to="/" class="header__nav-link">
@@ -31,10 +29,14 @@
             </router-link>
           </div>
           <div class="header__nav-item">
-            <a href="./request.html" class="header__nav-link">Neuantrag</a>
+            <router-link to="/request" class="header__nav-link">
+              Neuantrag
+            </router-link>
           </div>
           <div class="header__nav-item">
-            <a href="#" class="header__nav-link">Gesamt</a>
+            <router-link to="#" class="header__nav-link">
+              Gesamt
+            </router-link>
           </div>
           <div class="header__nav-item header__nav-item_last">
             <a href="#settings" uk-toggle class="header__nav-link">

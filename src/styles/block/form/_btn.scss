@@ -56,6 +56,11 @@
 			border-color: $color_green;
 			background-color: $color_green;
 			color: $color_white;
+          svg{
+            path{
+              stroke: $color_white;
+            }
+          }
 		}
 	}
 	&_small{

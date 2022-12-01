@@ -1,5 +1,6 @@
 <template>
   <div class="all__lockers">
+    <TopBar></TopBar>
     <div class="container">
 
       <div class="content__result js-result">
@@ -175,11 +176,13 @@
 
 <script>
 import ContentBottom from "@/components/ContentBottom";
+import TopBar from "@/components/TopBar";
 
 export default {
   name: "AllLockersView",
   components: {
-    ContentBottom
+    ContentBottom,
+    TopBar
   }
 }
 </script>
