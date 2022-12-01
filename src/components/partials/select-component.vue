@@ -1,6 +1,6 @@
 <template>
   <multiselect v-model="sel_prop" :options="options" :taggable="true" :showLabels="false" :searchable="false"
-               :close-on-select="true" :allowEmpty="false" @select="setValue"
+               :close-on-select="true" :allowEmpty="false" :disabled="disabled" @select="setValue"
                placeholder>
     <template slot="singleLabel" slot-scope="props">
       {{ props.option }}
@@ -37,6 +37,9 @@ export default {
     value: {
       default: ''
     },
+    disabled:{
+      default: false
+    }
 
   },
 
@@ -72,6 +75,9 @@ export default {
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style lang="scss">
+.multiselect--disabled .multiselect__current, .multiselect--disabled .multiselect__select{
+  background: white;
+}
 .multiselect {
   height: 60px;
   background-color: transparent;
@@ -104,7 +110,7 @@ export default {
   }
 
   .multiselect__select {
-    height: 60px;
+    height: 58px;
     z-index: 1;
 
     &:before {

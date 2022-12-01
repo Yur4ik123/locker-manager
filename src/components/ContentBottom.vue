@@ -47,45 +47,56 @@ export default {
       per_page: 10,
       options: [10, 20, 30, 40]
     }
+  },
+  methods: {
+
   }
 }
 </script>
 
 <style lang="scss">
-  .content__bottom{
-    .v-select{
-      height: 40px;
-      .vs__dropdown-toggle{
-        height: 40px;
-        border-radius: 0;
-      }
-      .vs__selected-options{
-        display: flex;
-        align-items: center;
-        padding: 4px 9px;
-      }
-      .vs__dropdown-option--highlight{
-        background-color: #006B8D;
-        color: white;
-      }
-      .vs__dropdown-menu{
-        min-width: 90px;
-      }
-      .vs__search{
-        display: none;
-      }
-      .vs__dropdown-option--selected{
-        background-color: #006B8D;
-        color: white;
-      }
-      .vs__dropdown-option{
-        padding: 7px 17px;
-        &:hover{
-          background-color: #006B8D;
-          color: white;
-        }
-      }
+.content__bottom {
+  .v-select {
+    height: 40px;
 
+    .vs__dropdown-toggle {
+      height: 40px;
+      border-radius: 0;
     }
+
+    .vs__selected-options {
+      display: flex;
+      align-items: center;
+      padding: 4px 9px;
+    }
+
+    .vs__dropdown-option--highlight {
+      background-color: #006B8D;
+      color: white;
+    }
+
+    .vs__dropdown-menu {
+      min-width: 90px;
+    }
+
+    .vs__search {
+      display: none;
+    }
+
+    .vs__dropdown-option--selected {
+      background-color: #006B8D;
+      color: white;
+    }
+
+    .vs__dropdown-option {
+      padding: 7px 17px;
+
+      &:hover {
+        background-color: #006B8D;
+        color: white;
+      }
+    }
+
   }
+}
 </style>

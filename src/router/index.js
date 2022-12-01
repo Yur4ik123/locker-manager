@@ -28,6 +28,21 @@ const routes = [
         path: '/request',
         name: 'request',
         component: () => import('../views/RequestView')
+    },
+    {
+        path: '/detail',
+        name: 'detail',
+        component: () => import('../views/DetailView')
+    },
+    {
+        path: '/detailed-full',
+        name: 'detailed-full',
+        component: () => import('../views/DetailedFullView')
+    },
+    {
+        path: '/detailed-history',
+        name: 'detailed-history',
+        component: () => import('../views/DetailedHistoryView')
     }
 ]
 
