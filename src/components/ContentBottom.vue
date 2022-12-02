@@ -17,6 +17,7 @@
                   v-model="per_page"
                   :clearable="false"
                   :searchable="false"
+                  @input="setPerPage"
         >
           <template #open-indicator="{ attributes }">
             <span v-bind="attributes">
@@ -27,12 +28,6 @@
 </span>
           </template>
         </v-select>
-        <!--        <select class="content__bottom-select">-->
-        <!--          <option value="10">10</option>-->
-        <!--          <option value="20">20</option>-->
-        <!--          <option value="30">30</option>-->
-        <!--          <option value="30">40</option>-->
-        <!--        </select>-->
         <div class="content__bottom-count">1-10 von 100</div>
       </div>
     </div>
@@ -48,8 +43,13 @@ export default {
       options: [10, 20, 30, 40]
     }
   },
+  created() {
+    this.per_page = this.$store.getters["internalVariables/getPerPage"];
+  },
   methods: {
-
+    setPerPage(){
+      this.$store.dispatch('internalVariables/changePerPage', this.per_page);
+    }
   }
 }
 </script>

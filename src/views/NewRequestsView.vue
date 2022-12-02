@@ -89,6 +89,7 @@ import ContentBottom from "@/components/ContentBottom";
 import TopBar from "@/components/TopBar";
 import CommentModal from "@/components/modals/CommentModal";
 import MapModal from "@/components/modals/MapModal";
+import axios from 'axios';
 
 
 export default {
@@ -101,6 +102,12 @@ export default {
   created() {
     this.$store.dispatch('newRequests/getNewRequests');
     this.requests = this.getRequests;
+    // axios.get('basUrl/new-requests', {
+    //     params:{
+    //       per_page: 10
+    //     }
+    // })
+
   },
   methods:{
     showComment(){
