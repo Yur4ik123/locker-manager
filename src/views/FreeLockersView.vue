@@ -1,6 +1,6 @@
 <template>
 <div class="free__locker">
-  <TopBar></TopBar>
+  <TopBar :header="'Nicht gebuchte Spinde'" :subheader="'Ungebuchte'" :filters_list="filters_list"></TopBar>
   <div class="container">
 
     <div class="content__result js-result">
@@ -49,6 +49,24 @@ import TopBar from "@/components/TopBar";
 
 export default {
   name: "FreeLockersView",
+  data(){
+    return{
+      filters_list: [
+        {
+          group_header: 'Gebäude/ Ort',
+          items: ['0126', '1400']
+        },
+        {
+          group_header: 'Etage',
+          items: ['UG', 'EG', '1. OG', '2. OG', '3. OG']
+        },
+        {
+          group_header: 'Status',
+          items: ['Frei', 'Reparatur']
+        },
+        ]
+    }
+  },
   components: {
     ContentBottom,
     TopBar

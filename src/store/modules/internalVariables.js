@@ -8,11 +8,17 @@ export default {
     mutations: {
         updatePerPage(state, data) {
             state.per_page = data;
+        },
+        updateCount(state, data) {
+            state.total_count = data;
         }
     },
     actions: {
         changePerPage(ctx, data) {
             ctx.commit('updatePerPage', data)
+        },
+        changeCount(ctx, data){
+            ctx.commit('updateCount', data)
         }
     },
     getters: {
@@ -21,6 +27,9 @@ export default {
         },
         getCurrentPage(state){
             return state.current_page;
+        },
+        getCount(state){
+            return state.total_count
         }
     },
 }

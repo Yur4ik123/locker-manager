@@ -1,6 +1,6 @@
 <template>
   <div class="reserved__lockers">
-    <TopBar></TopBar>
+    <TopBar :header="'Alle belegte Spinde'" :subheader="'Belegte'" :filters_list="filters_list"></TopBar>
     <div class="container">
 
       <div class="content__result js-result">
@@ -105,6 +105,23 @@ import LeaveModal from "@/components/modals/LeaveModal";
 
 export default {
   name: "ReservedLockersView",
+  data() {
+    return {
+      filters_list: [
+        {
+          group_header: 'Gebäude/ Ort',
+          items: ['0126', '1400']
+        },
+        {
+          group_header: 'Mietzeit',
+          items: [],
+          show_interval: true
+        },
+
+      ]
+    }
+
+  },
   methods: {
     removeRow() {
       confirm('Are you sure you want to delete this?')

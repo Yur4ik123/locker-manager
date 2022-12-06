@@ -9,7 +9,7 @@
         <div class="header__nav">
           <div class="header__nav-item">
             <router-link to="/" class="header__nav-link">
-              Neuanträge <span>{{ total_count }}</span>
+              Neuanträge <span>{{ count }}</span>
             </router-link>
 
           </div>
@@ -56,23 +56,33 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "Header",
   data() {
     return {
-      total_count: 1
+
     }
   },
   mounted() {
-    this.$on('total_count', this.setTotalCount)
+
+
   },
   methods: {
-    setTotalCount(count) {
-      console.log(count, 'count')
-      this.total_count = count;
-    }
+
   },
-  components: {}
+  components: {},
+  computed: {
+    ...mapGetters({
+      count: 'internalVariables/getCount'
+    })
+  },
+   watch: {
+     count: function(val) {
+        console.log(val, 'asfasfasf')
+     }
+   }
 }
 </script>
 

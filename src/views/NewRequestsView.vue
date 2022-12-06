@@ -1,6 +1,6 @@
 <template>
   <div class="new__requests">
-    <TopBar></TopBar>
+    <TopBar :header="'Alle neuen Anträge'" :subheader="'Neue'" :filters_list="filters_list"></TopBar>
     <div class="container">
 
       <div class="content__result js-result">
@@ -107,7 +107,15 @@ export default {
         current_page: 1,
         from: 1,
         to: 1
-      }
+      },
+      filters_list: [{
+        group_header: 'Geschlecht',
+        items: ['Männlich', 'Weiblich']
+      },
+        {
+          group_header: 'Gebäude/ Ort',
+          items: ['0126', '1400']
+        }]
 
     }
   },
@@ -130,7 +138,8 @@ export default {
         this.paginator.from = res.data.from
         this.paginator.to = res.data.to
         this.requests = res.data.data
-        this.$emit('total_count', res.data.total)
+        this.$store.dispatch('internalVariables/changeCount', res.data.total)
+
         console.log(res.data)
 
       })
@@ -148,7 +157,8 @@ export default {
         this.paginator.from = res.data.from
         this.paginator.to = res.data.to
         this.requests.push(...res.data.data)
-        this.$emit('total_count', res.data.total)
+        this.$store.dispatch('internalVariables/changeCount', res.data.total)
+
         console.log(res.data)
 
       })

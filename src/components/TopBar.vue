@@ -5,10 +5,10 @@
         <div class="top__pagename">
           <div class="top__pagename-ico">
             <img src="@/assets/img/style/ico_pagename.svg" alt="">
-            <div class="top__pagename-lbl">Neue</div>
+            <div class="top__pagename-lbl">{{ subheader }}</div>
           </div>
           <div class="top__pagename-text">
-            <div class="top__pagename-title">Alle neuen Anträge</div>
+            <div class="top__pagename-title">{{ header }}</div>
             <div class="top__pagename-desc">148 Anfragen</div>
           </div>
         </div>
@@ -66,30 +66,26 @@
             <!--            </div>-->
             <div class="filter__title">Filter</div>
             <div class="filter__wrap">
-              <div class="filter__group">
-                <div class="filter__group-lbl">Geschlecht</div>
+              <div class="filter__group" v-for="group in filters_list">
+                <div class="filter__group-lbl">{{ group.group_header }}</div>
                 <div class="filter__group-list">
-                  <label class="input-checkbox">
+                  <label class="input-checkbox"  v-for="filter in group.items">
                     <input type="checkbox" name="" value="" class="input-checkbox__input">
-                    <span>Männlich</span>
+                    <span>{{ filter }}</span>
                   </label>
-                  <label class="input-checkbox">
-                    <input type="checkbox" name="" value="" class="input-checkbox__input">
-                    <span>Weiblich</span>
-                  </label>
+
                 </div>
-              </div>
-              <div class="filter__group">
-                <div class="filter__group-lbl">Gebäude/ Ort</div>
-                <div class="filter__group-list">
-                  <label class="input-checkbox">
-                    <input type="checkbox" name="" value="" class="input-checkbox__input">
-                    <span>0126</span>
-                  </label>
-                  <label class="input-checkbox">
-                    <input type="checkbox" name="" value="" class="input-checkbox__input">
-                    <span>1400</span>
-                  </label>
+                <div class="filter__group-list" v-if="group.show_interval">
+                  <div class="filter__group-item">
+                    <label class="form__lbl">Mietbeginn</label>
+                    <input type="date" class="input-text" data-toggle="datepicker" name="" placeholder="" value="">
+
+                  </div>
+                  <div class="filter__group-item">
+                    <label class="form__lbl">Mietende</label>
+                    <input type="date" class="input-text" data-toggle="datepicker" name="" placeholder="" value="">
+
+                  </div>
                 </div>
               </div>
             </div>
@@ -106,6 +102,19 @@ import ExportModal from "@/components/modals/ExportModal";
 
 export default {
   name: "TopBar",
+  props: {
+    header: {
+      default: ''
+    },
+    subheader: {
+      default: ''
+    },
+    filters_list: {
+      default: function () {
+        return []
+      }
+    }
+  },
   components: {
     ExportModal
   }
