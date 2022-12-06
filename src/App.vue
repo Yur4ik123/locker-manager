@@ -19,5 +19,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+.router-link-exact-active{
+  background: #005B78;
+}
 </style>

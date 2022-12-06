@@ -1,84 +1,103 @@
 <template>
   <div class="request__view">
-    <form action="" class="content content_form">
+    <form action="" class="content content_form" @submit.prevent="submit">
       <div class="white-bg">
         <div class="container">
           <div class="content__container">
             <h1 class="content__title">Spind beantragen</h1>
             <div class="form">
               <div class="form__row">
-                <div class="form__item">
+                <div class="form__item" :class="{'invalid': $v.client.$error}">
                   <label class="form__lbl">Auftraggeber *</label>
-                  <SelectComponent v-model="client" :options="clients_list"></SelectComponent>
+                  <SelectComponent v-model.trim="$v.client.$model" :options="clients_list"></SelectComponent>
+                  <span class="valid-error">
+                            required
+                        </span>
+
                 </div>
                 <div class="form__item">
                   <label class="form__lbl">Ansprechpartner</label>
-                  <input type="text" class="input-text" name="" placeholder="" value="">
+                  <input type="text" v-model.trim="contact_person" class="input-text" name="" placeholder="" value="">
                 </div>
                 <div class="form__item">
                   <label class="form__lbl">Telefonnummer</label>
-                  <input type="text" class="input-text" name="" placeholder="" value="">
+                  <input type="text" v-model.trim="phone" class="input-text" name="" placeholder="" value="">
                 </div>
                 <div class="form__item">
                   <label class="form__lbl">E-Mail Adresse</label>
-                  <input type="text" class="input-text" name="" placeholder="" value="">
+                  <input type="text" v-model.trim="email" class="input-text" name="" placeholder="" value="">
+
                 </div>
-                <div class="form__item">
+                <div class="form__item" :class="{'invalid': $v.employer.$error}">
                   <label class="form__lbl">Arbeitgeber *</label>
-                  <input type="text" class="input-text" name="" placeholder="" value="">
+                  <input type="text" v-model.trim="$v.employer.$model" class="input-text" name="" placeholder=""
+                         value="">
+                  <span class="valid-error">
+                            required
+                        </span>
                 </div>
-                <div class="form__item">
+                <div class="form__item" :class="{'invalid': $v.cost_centre.$error}">
                   <label class="form__lbl">Kostenstelle *</label>
-                  <input type="text" class="input-text" name="" placeholder="" value="">
+
+                  <input type="text" v-model.trim="$v.cost_centre.$model" class="input-text" name="" placeholder=""
+                         value="">
+                  <span class="valid-error">
+                            required
+                        </span>
                 </div>
-                <div class="form__item">
+                <div class="form__item" :class="{'invalid': $v.location.$error}">
                   <label class="form__lbl">Gebäude/ Ort *</label>
-                  <SelectComponent v-model="place" :options="palaces_list"></SelectComponent>
+                  <SelectComponent v-model.trim="$v.location.$model" :options="palaces_list"></SelectComponent>
+                  <span class="valid-error">
+                            required
+                        </span>
                 </div>
-                <div class="form__item">
+                <div class="form__item" :class="{'invalid': $v.role.$error}">
                   <label class="form__lbl">Rolle *</label>
-                  <SelectComponent v-model="role" :options="roles_list"></SelectComponent>
+                  <SelectComponent v-model.trim="$v.role.$model" :options="roles_list"></SelectComponent>
+                  <span class="valid-error">
+                            required
+                        </span>
                 </div>
                 <div class="form__item">
                   <label class="form__lbl">Mietbeginn</label>
-                  <input type="date" class="input-text"  name="" placeholder="">
-<!--                  <div class="form__item-icon">-->
-<!--                    <img src="@/assets/img/style/ico_date.svg" alt="">-->
-<!--                  </div>-->
+                  <input type="date" v-model.trim="rental_start" class="input-text" name="" placeholder="">
                 </div>
                 <div class="form__item">
                   <label class="form__lbl">Mietende </label>
-                  <input type="date" class="input-text"  name="" placeholder="">
-<!--                  <div class="form__item-icon">-->
-<!--                    <img src="@/assets/img/style/ico_date.svg" alt="">-->
-<!--                  </div>-->
+                  <input type="date" v-model.trim="rental_end" class="input-text" name="" placeholder="">
                 </div>
-                <div class="form__item">
+                <div class="form__item" :class="{'invalid': $v.gender.$error}">
                   <label class="form__lbl">Geschlecht *</label>
-                  <SelectComponent v-model="gender" :options="genders_list"></SelectComponent>
+                  <SelectComponent v-model.trim="$v.gender.$model" :options="genders_list"></SelectComponent>
+                  <span class="valid-error">
+                            required
+                        </span>
                 </div>
                 <div class="form__item form__item_50">
                   <label class="form__lbl">Bemerkung</label>
-                  <textarea class="input-textarea"></textarea>
+                  <textarea v-model.trim="remark" class="input-textarea"></textarea>
                 </div>
               </div>
               <div class="form__row">
                 <div class="form__item">
                   <label class="input-checkbox">
-                    <input type="checkbox" name="" value="" class="input-checkbox__input js-tab-change">
+                    <input type="checkbox" v-model.trim="reg_ror_downtime" name="" value=""
+                           class="input-checkbox__input js-tab-change">
                     <span>Für Stillstand anmelden</span>
                   </label>
                 </div>
               </div>
-              <div class="js-show-num" style="display: none;">
+              <div class="js-show-num" v-if="reg_ror_downtime">
                 <div class="form__row">
                   <div class="form__item">
                     <label class="form__lbl">Auftragsnummer</label>
-                    <input type="text" class="input-text" name="" placeholder="" value="">
+                    <input type="text" v-model.trim="order_number" class="input-text" name="" placeholder="" value="">
                   </div>
                   <div class="form__item">
                     <label class="form__lbl">Anzahl Personen</label>
-                    <input type="number" min="1" class="input-text js-cloned-count-input" name="" value="1"
+                    <input type="number" v-model.trim="number_people" min="1" class="input-text js-cloned-count-input"
+                           name="" value="1"
                            placeholder="">
                   </div>
                   <div class="form__item">
@@ -98,7 +117,7 @@
             <h1 class="content__title">Personen</h1>
             <div class="cloned">
               <div class="cloned__wrap js-cloned-rows">
-                <div class="cloned__row js-cloned-row" v-for="(item, idx) in cloned_row">
+                <div class="cloned__row js-cloned-row" v-for="(item, idx) in persons">
                   <div class="cloned__item">
                     <label class="form__lbl">Personalnummer</label>
                     <input type="text" class="input-text" v-model="item.pepersonalnummer" placeholder="" value="">
@@ -116,7 +135,7 @@
                     <SelectComponent v-model="item.sex" :options="genders_list"></SelectComponent>
                   </div>
                   <div class="cloned__remove js-cloned-remove" v-if="idx!=0" @click="removeRow(idx)">
-                    <img src="@/assets/img/style/ico_remove.svg" alt="" >
+                    <img src="@/assets/img/style/ico_remove.svg" alt="">
                   </div>
                 </div>
               </div>
@@ -127,8 +146,11 @@
                     <path d="M9 0L9 18M18 9L0 9" stroke="#006B8D"/>
                   </svg>
                 </div>
-                <button type="submit" ref="submit_button" class="button button_blue js-check-save-button">Speichern</button>
-                <button type="submit" ref="save_button" class="fixed-save-button js-save-button">
+                <button type="submit" ref="submit_button"
+                        class="button button_blue js-check-save-button">Speichern
+                </button>
+                <button type="submit" ref="save_button"
+                        class="fixed-save-button js-save-button">
                   <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        viewBox="0 0 486 486" style="enable-background:new 0 0 486 486;" xml:space="preserve">
@@ -192,6 +214,8 @@
 <script>
 import SelectComponent from "@/components/partials/select-component";
 import DateComponent from "@/components/partials/date-component";
+import axios from "axios";
+import {required, email} from 'vuelidate/lib/validators'
 
 export default {
   name: "RequestView",
@@ -200,22 +224,41 @@ export default {
       clients_list: ['BASF', 'Bayer', 'CABB', 'Clariant', 'EEW', 'LiondellBasel', 'Perimeter Solutions', 'Statkraft'],
       client: 'BASF',
       palaces_list: ['0126 Knapsack', '1400 Hürth'],
-      place: '0126 Knapsack',
+      location: '0126 Knapsack',
       roles_list: ['Mitarbeiter', 'Azubi', 'Praktikant', 'Umschüler', 'AÜG', 'Sonstige'],
       role: 'Mitarbeiter',
       genders_list: ['Männlich', 'Weiblich', 'Divers'],
       gender: 'Männlich',
-      cloned_row: [{
+      persons: [{
         personalnummer: '',
         name: '',
         vorname: '',
         sex: ''
-      }]
+      }],
+      employer: '',
+      contact_person: '',
+      phone: '',
+      email: '',
+      cost_centre: '',
+      rental_end: '',
+      rental_start: '',
+      remark: '',
+      number_people: 1,
+      order_number: 0,
+      reg_ror_downtime: false,
     }
+  },
+  validations: {
+    client: {required},
+    employer: {required},
+    cost_centre: {required},
+    location: {required},
+    role: {required},
+    gender: {required},
   },
   mounted() {
 
-    let observer = new IntersectionObserver(this.showHideSaveButton,  {
+    let observer = new IntersectionObserver(this.showHideSaveButton, {
       root: document,
       rootMargin: '50px',
       threshold: 1.0
@@ -223,21 +266,34 @@ export default {
     observer.observe(this.$refs.submit_button);
   },
   methods: {
-    showHideSaveButton(entries, observer){
+    submit() {
+      if (this.$v.$invalid) {
+        this.$v.$touch();
+        console.log(this.$v)
+        return;
+      }
+      axios.post('/requests/create', this.$data).then(res => {
+       this.$router.push('/')
+      }).catch(err => {
+        console.log(err)
+      })
+
+    },
+    showHideSaveButton(entries, observer) {
       let save_btn = this.$refs.save_button
       entries[0].isIntersecting ? save_btn.style.display = 'none  ' : save_btn.style.display = 'block'
     },
     clonedAdd() {
-      this.cloned_row.push({
+      this.persons.push({
         personalnummer: '',
         name: '',
         vorname: '',
         sex: ''
       })
     },
-    removeRow(idx){
-      console.log(idx , 'asfasfa')
-      this.cloned_row = this.cloned_row.filter((e, i) => i !== idx).slice()
+    removeRow(idx) {
+      console.log(idx, 'asfasfa')
+      this.persons = this.persons.filter((e, i) => i !== idx).slice()
     }
   },
   components: {
@@ -247,6 +303,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "@/styles/block/system/_mixin.scss";
 
+@include validate;
 </style>

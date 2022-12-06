@@ -227,3 +227,29 @@ $wide-screen: "(max-width: #{$max-breakpoint}px)";
 
 }
 }
+@mixin validate(){
+  .form__item {
+    .valid-error {
+      font-size: 12px;
+      line-height: 13px;
+      color: red;
+      position: absolute;
+      left: 0;
+      top: calc(100% + 4px);
+      transition: 0.3s;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &.invalid {
+      input, textarea{
+        border-color: red;
+      }
+      .valid-error {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+  }
+}

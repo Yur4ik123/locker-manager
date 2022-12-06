@@ -6,8 +6,13 @@ import router from './router'
 import store from './store'
 import UIkit from "uikit";
 import vSelect from 'vue-select'
-
+import axios from "axios";
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 Vue.component('v-select', vSelect)
+
+/* axios config */
+axios.defaults.baseURL = 'https://lockers-api.loc/api'; //Api url
 
 Vue.config.productionTip = false
 

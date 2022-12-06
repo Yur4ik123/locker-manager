@@ -50,7 +50,6 @@ export default {
   },
   created() {
     this.sel_prop = this.value;
-    console.log( this.value, ' this.value')
     /*   this.$on("input", function (val){
            console.log(val, 'asdasdasdas')
        })*/

@@ -1,36 +1,35 @@
 import {SampleRequests} from '@/data/sampleData'
+import axios from "axios";
 
 export default {
     namespaced: true,
     state: {
-        new_requests: []
+        new_requests: [],
+
 
     },
     mutations: {
-        updateRequests(state, data) {
-            state.new_requests = data;
+        updateRequests(state) {
+
+            //state.new_requests = data;
         },
 
 
     },
     actions: {
+
         getNewRequests(ctx) {
-            ctx.commit("updateRequests", SampleRequests)
+            ctx.commit("updateRequests")
         }
-        // getMenu(ctx) {
-        //
-        //     axios.get(laroute.route('api.categories', {locale:window.variables.locale})).then(res => {
-        //         ctx.commit('updateUpdatedAt', Math.floor(Date.now() / 1000))
-        //         ctx.commit('updateMenuItems',res.data)
-        //     }).catch(err => {
-        //         console.log('err', err)
-        //     })
-        // }
     },
     getters: {
-        GET_NEW_REQUESTS(state){
+        get_request_page: (state) => page => {
+            return state.new_requests[page];
+        },
+        get_all_requests: (state) => () => {
             return state.new_requests;
         }
+
 
     }
 }
